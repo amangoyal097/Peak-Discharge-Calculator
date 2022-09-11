@@ -43,7 +43,7 @@ if uploaded_file is not None and st.session_state.uploaded:
         rainfall_column = df.columns[0]
         df['Runoff Coeffecient'] = float(st.session_state.runoff_excel)
         df['Catchment Area (%s)' % (st.session_state.area_unit)] = float(st.session_state.area_excel)
-        df['Peak Discharge (m\u00b3/day)'] = df.apply (lambda row: calculate(row), axis=1)
+        df['Peak Discharge (m\u00b3/s)'] = df.apply (lambda row: calculate(row), axis=1)
         st.table(df)
     except Exception as e:
         print(e)
